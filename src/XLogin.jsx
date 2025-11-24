@@ -9,26 +9,20 @@ const XLogin = () => {
     e.preventDefault();
 
     if (!username || !password) {
-      setMessage('Invalid username or password');
+      setMessage('');
       return;
     }
 
     if (username === 'user' && password === 'password') {
-      setMessage('Welcome, user!');
+      setMessage('Welcome, user');
     } else {
       setMessage('Invalid username or password');
     }
   };
 
   return (
-    <div
-      style={{
-        maxWidth: 360,
-        margin: '40px auto',
-        fontFamily: 'Arial, sans-serif',
-      }}
-    >
-      <form onSubmit={handleSubmit} noValidate>
+    <div style={{ maxWidth: 360, margin: '40px auto', fontFamily: 'Arial' }}>
+      <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: 12 }}>
           <label htmlFor="username">Username</label>
           <br />
@@ -37,8 +31,6 @@ const XLogin = () => {
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            required
-            aria-required="true"
             style={{ width: '100%', padding: 8, boxSizing: 'border-box' }}
           />
         </div>
@@ -51,16 +43,11 @@ const XLogin = () => {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
-            aria-required="true"
             style={{ width: '100%', padding: 8, boxSizing: 'border-box' }}
           />
         </div>
 
-        <button
-          type="submit"
-          style={{ padding: '8px 16px', cursor: 'pointer' }}
-        >
+        <button type="submit" style={{ padding: '8px 16px' }}>
           Submit
         </button>
       </form>
